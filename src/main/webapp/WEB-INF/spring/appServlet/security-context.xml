@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+
+	<security:authentication-manager>
+		<!--인증과 관련된 부분 -->
+		<!-- <security:authentication-provider> <security:user-service> <security:user 
+			name="nykim" authorities="ROLE_USER" password="letmein" /> </security:user-service> 
+			</security:authentication-provider> -->
+
+		<!-- 데이터베이스와 관련된 인증 부분 -->
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				users-by-username-query="select username, password, enabled from users where username=?"
+				authorities-by-username-query="select username, authority from authorities where username=?" />
+		</security:authentication-provider>
+
+
+	</security:authentication-manager>
+	<security:http auto-config="true" use-expressions="true">
+		<security:intercept-url pattern="/"
+			access="isAuthenticated()" />				<!-- 홈에서 체크, permitall은 모든 허가를 뜻함 -->			<!-- if -->
+
+		<security:intercept-url pattern="/future"
+			access="permitAll" />
+
+		<security:intercept-url pattern="/offercreated"
+			access="permitAll" />
+			
+		<security:intercept-url pattern="/docreate"
+			access="permitAll" />
+
+		<security:intercept-url pattern="/link" access="permitAll" />							<!-- else if -->
+
+		<security:intercept-url pattern="/check"
+			access="permitAll" />							<!-- else if -->
+
+		<security:intercept-url pattern="/check2"
+			access="permitAll" />							<!-- else if -->
+
+		<security:intercept-url pattern="/offers"
+			access="permitAll" />							<!-- else if -->
+
+		<security:intercept-url pattern="/createoffer"
+			access="permitAll" />   						 <!-- else if -->			<!-- 로그인 됬는지 안됬는지 체크하는 부분 -->
+
+
+
+		<security:intercept-url pattern="/resources"
+			access="permitAll" />             				 <!-- else if -->
+		<security:intercept-url pattern="/**" access="denyAll" />                       <!-- else -->
+	</security:http>
+</beans>
