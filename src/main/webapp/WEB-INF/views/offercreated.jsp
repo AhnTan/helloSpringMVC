@@ -8,9 +8,10 @@
 </head>
 <body>
 
-가 새로운 제안을 하였습니다. 감사합니다.
-
-<a href="${pageContext.request.contextPath}/offers"> click here to view current offers</a>
+새로운 수강 신청을 하였습니다. 감사합니다.
+</br>
+<%-- <a href="${pageContext.request.contextPath}/offers"> 홈화면으로 돌아가기</a> --%>
+<a href="#" onClick="history.go(-2); return false; "> 홈화면으로 돌아가기</a>
 
 </body>
 </html>

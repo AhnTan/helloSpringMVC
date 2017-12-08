@@ -98,4 +98,23 @@ public class OfferController {
 		
 		return "offercreated";
 	}
+	
+/*	@RequestMapping("/docreate")
+	public String createOffer(Model model, @Valid Offer offer, BindingResult result) {
+		
+		// valid로 잘못된 값이 입력(검증을함)되면 오류체크
+		if(result.hasErrors()) {
+			System.out.println("==Form data does not validated");
+			List<ObjectError> errors = result.getAllErrors();
+			for(ObjectError error : errors) {
+				System.out.println(error.getDefaultMessage());
+			}
+			// 다시 form이 적용되있는 페이지로 감
+			return "createoffer";
+		}
+		offerService.insert(offer);
+		//System.out.println(offer);
+		
+		return "offercreated";
+	}*/
 }
