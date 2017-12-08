@@ -12,7 +12,7 @@
 <table border="1">
 	<caption>2018년도 1학기 예정 신청 과목</caption>
 		<thead> 
-			<tr><th>수강년도</th>	<th>학기</th>  <th>교과목명</th> <th>교과코드</th> <th>구분</th> <th>학점</th> 
+			<tr><th>수강년도</th>	<th>학기</th> <th>교과목명</th> <th>교과코드</th> <th>구분</th> <th>학점</th> 
 		</thead>
 		
 		<tbody>
